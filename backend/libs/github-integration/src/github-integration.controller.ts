@@ -10,7 +10,7 @@ export class GithubIntegrationController {
         private readonly githubService: GithubIntegrationService
     ) { }
 
-    @Get('repositories')
+    @Get('repos')
     async listRepositories(
         @Query('page') page: string,
         @Query('per_page') per_page: string
@@ -18,9 +18,9 @@ export class GithubIntegrationController {
         return this.githubService.listRepositories(parseInt(page), parseInt(per_page));
     }
 
-    @Get('repository/:id/owner/:owner/commits')
+    @Get('repo/:repo/owner/:owner/commits')
     async listCommitsFromRepository(
-        @Param('id') repo: string,
+        @Param('repo') repo: string,
         @Param('owner') owner: string,
         @Query('page') page: string,
         @Query('per_page') per_page: string
