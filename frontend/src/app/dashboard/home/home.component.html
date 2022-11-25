@@ -6,8 +6,21 @@
     </div>
     <!-- Iterate the available public projects -->
     <div class="row">
-        <div class="col-4" *ngFor="let repo of repos">
-            <app-custom-card [CardData]="repo"></app-custom-card>
+        <div class="col-12" *ngIf="!repos || repos.length === 0">
+            No repos to display
+        </div>
+        <ng-container *ngIf="repos && repos.length > 0">
+            <div class="col-4" *ngFor="let repo of repos">
+                <app-repo-card [RepoCardData]="repo"></app-repo-card>
+            </div>
+        </ng-container>
+    </div>
+    <div class="row">
+        <div class="col-12 loadMore" *ngIf="!isLoadAble">
+            <span class="no-loadable">No more data to load</span>
+        </div>
+        <div class="col-12 loadMore" *ngIf="isLoadAble">
+            <button mat-stroked-button color="primary" (click)="loadMore()">Load More</button>
         </div>
     </div>
 </div>

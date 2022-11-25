@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   private per_page = 20;
 
   public repos: any = [];
+  public isLoadAble = true;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
+    this.listRepos(this.page, this.per_page);
   }
 
   ngOnDestroy(): void {
@@ -32,13 +33,30 @@ export class HomeComponent implements OnInit, OnDestroy {
     this._unsubscribeAll.complete();
   }
 
-  listRepos() {
-    this.apiService.listRepos()
+  listRepos(page: number, per_page: number) {
+    this.apiService.listRepos(page, per_page)
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe(response => {
-        this.repos = response;
+        const data: any = response;
+        // If data coming from backend dont exist then we just end the method
+        if (!data || data.length === 0) {
+          this.isLoadAble = false;
+          return this.repos;
+        }
+
+        // If the current array has results then we will concat the new page results
+        if (this.repos.length > 0 && data.length > 0)
+          this.repos = this.repos.concat(data);
+
+        // Assing response to repos array
+        this.repos = data;
       }, error => {
         this.snackBar.open(error);
       });
+  }
+
+  loadMore() {
+    this.page += 1;
+    this.listRepos(this.page, this.per_page);
   }
 }
