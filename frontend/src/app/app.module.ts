@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ApiService } from './service/api.service';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    ApiService
+  ],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
