@@ -1,12 +1,14 @@
-import {NgModule} from "@angular/core";
-import {RouterModule, Routes} from "@angular/router";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { CommitsComponent } from "./commits/commits.component";
 import { DashboardComponent } from "./dashboard.component";
 import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
   {
     path: '', component: DashboardComponent, children: [
-      {path: 'home', component: HomeComponent}
+      { path: 'home', component: HomeComponent },
+      { path: 'repo/:repo/owner/:owner/commits', component: CommitsComponent }
     ]
   }
 ];

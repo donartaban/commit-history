@@ -5,26 +5,28 @@ import { HttpClientModule } from "@angular/common/http";
 import { HomeComponent } from "./home/home.component";
 import { DashboardComponent } from "./dashboard.component";
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { CardComponent } from "./card/card.component";
+import { RepoCardComponent } from "./cards/repo-card/repo-card.component";
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CommitsComponent } from "./commits/commits.component";
 
 @NgModule({
     declarations: [
         DashboardComponent,
         HomeComponent,
-        CardComponent
+        RepoCardComponent,
+        CommitsComponent
     ],
     imports: [
         HttpClientModule,
         CommonModule,
         MatToolbarModule,
         MatCardModule,
-        MatButtonModule,           
-        MatButtonToggleModule,    
-        MatSnackBarModule,       
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatSnackBarModule,
         DashboardRoutingModule
     ]
 })
