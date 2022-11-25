@@ -1,0 +1,15 @@
+<mat-card class="custom-card">
+    <mat-card-header>
+        <mat-card-title>{{CardData?.title}}</mat-card-title>
+        <mat-card-subtitle *ngIf="CardData.subtitle">{{CardData?.subtitle}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf="CardData.image" src="{{CardData?.image}}" alt="Photo of a Shiba Inu">
+    <mat-card-content *ngIf="CardData.description">
+        <p>
+            {{CardData?.description}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>        
+        <button mat-button>View More</button>
+    </mat-card-actions>
+</mat-card>

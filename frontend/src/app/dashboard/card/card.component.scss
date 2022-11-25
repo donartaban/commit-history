@@ -1,0 +1,18 @@
+.custom-card {
+    mat-card-title {
+        color: #7b1fa2;
+        font-weight: bold;
+    }
+
+    mat-card-subtitle {
+        color: rgb(192, 188, 188);
+    }
+
+    mat-card-content {
+        p {
+            color: rgb(192, 188, 188);
+        }
+    }
+    .custom-card-header-image {
+    }
+}
