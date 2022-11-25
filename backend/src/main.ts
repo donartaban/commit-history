@@ -27,8 +27,7 @@ async function bootstrap() {
 
   let origin = null;
   if (process.env.CORS_ORIGIN) {
-    console.info(`Using CORS from ENV var 'CORS_ORIGIN'`);
-
+  
     const arr = process.env.CORS_ORIGIN.split(',');
 
     while ((arr.length > 0) && (arr[0].trim() === '')) {
