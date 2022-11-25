@@ -1,5 +1,5 @@
 
-export interface ICustomCard {
+export interface IRepoCustomCard {
     title: string;
     subtitle: string | null;
     image: string | null;

@@ -1,0 +1,19 @@
+<mat-card class="custom-card">
+    <mat-card-header>
+        <mat-card-title>{{RepoCardData?.name}}</mat-card-title>
+        <mat-card-subtitle *ngIf="RepoCardData.full_name">
+            {{RepoCardData?.full_name}}            
+        </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf="RepoCardData.image" src="{{RepoCardData?.image}}">
+    <mat-card-content *ngIf="RepoCardData.description">
+        <p>
+            <strong>Url:</strong> {{RepoCardData?.html_url}}<br/>
+            <strong>Description:</strong> {{RepoCardData?.description}}<br/>
+            <strong>Owner:</strong> {{RepoCardData?.owner?.login}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>        
+        <button mat-button>View More</button>
+    </mat-card-actions>
+</mat-card>

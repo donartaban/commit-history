@@ -1,14 +1,13 @@
 import { Component, Input } from "@angular/core";
-import { ICustomCard } from "./card.component.interface";
 
 @Component({
-    selector: 'app-custom-card',
-    templateUrl: 'card.component.html',
-    styleUrls: ['card.component.scss']
+    selector: 'app-repo-card',
+    templateUrl: 'repo-card.component.html',
+    styleUrls: ['repo-card.component.scss']
 })
-export class CardComponent {
+export class RepoCardComponent {
 
-    @Input() CardData: any;
+    @Input() RepoCardData: any;
 
     /*public CardData: any = {
         title: 'Project name',
