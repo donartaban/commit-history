@@ -6,7 +6,7 @@ import { environment } from "src/environments/environment"
 export class ApiService {
 
     constructor(
-        private httpClient: HttpClient,
+        private httpClient: HttpClient
     ) { }
 
     private getBackendUrl() {
@@ -18,7 +18,7 @@ export class ApiService {
         return this.httpClient.get(url);
     }
 
-    ListCommits(repo: string, owner: string, page: number = 1, per_page: number = 20){
+    ListCommits(repo: string | null, owner: string | null, page: number = 1, per_page: number = 20){
         let url = this.getBackendUrl() + '/repo/' + repo + '/owner/' + owner + '?page=' + page + '&per_page=' + per_page;
         return this.httpClient.get(url);
     }
