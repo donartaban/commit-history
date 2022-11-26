@@ -19,7 +19,7 @@ export class ApiService {
     }
 
     ListCommits(repo: string | null, owner: string | null, page: number = 1, per_page: number = 20){
-        let url = this.getBackendUrl() + '/repo/' + repo + '/owner/' + owner + '?page=' + page + '&per_page=' + per_page;
+        let url = this.getBackendUrl() + '/github/repo/' + repo + '/owner/' + owner + '/commits' +'?page=' + page + '&per_page=' + per_page;
         return this.httpClient.get(url);
     }
 }
