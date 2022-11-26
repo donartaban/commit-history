@@ -11,12 +11,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommitsComponent } from "./commits/commits.component";
+import { CommitsCardComponent } from "./cards/commits-card/commits-card.component";
 
 @NgModule({
     declarations: [
         DashboardComponent,
         HomeComponent,
         RepoCardComponent,
+        CommitsCardComponent,
         CommitsComponent
     ],
     imports: [
