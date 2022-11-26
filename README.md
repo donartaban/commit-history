@@ -52,6 +52,7 @@ If you would like to see both apps running locally in diferents consoles, please
   - Install angular cli https://angular.io/cli
   - Open a new console and go to the /frontend folder and run 'npm i'
   - Finally run 'npm run start' to run up in development mode
+  - Go to http://localhost:4300 to see the app
   
 # Author
 My name is Gerardo Ruiz this is my contact data:
