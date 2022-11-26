@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Subject, takeUntil } from "rxjs";
 import { ApiService } from "src/app/service/api.service";
 
@@ -23,6 +23,7 @@ export class CommitsComponent implements OnInit, OnDestroy {
     constructor(
         private activatedRoute: ActivatedRoute,
         private readonly apiService: ApiService,
+        private router: Router,
         private snackBar: MatSnackBar
     ) {
         // Init parameters to null and wait to the component inits
@@ -60,17 +61,21 @@ export class CommitsComponent implements OnInit, OnDestroy {
 
                 // If the current array has results then we will concat the new page results
                 if (this.commits.length > 0 && data.length > 0)
-                    this.commits = this.commits.concat(data);
+                    return this.commits = this.commits.concat(data);
 
                 // Assing response to repos array
                 this.commits = data;
             }, error => {
-                this.snackBar.open(error);
+                this.snackBar.open(error.message);
             });
     }
 
     loadMore() {
         this.page += 1;
         this.listCommits(this.page, this.per_page);
+    }
+
+    backToRepositories(){
+        this.router.navigate(['/dashboard/repos']);
     }
 }

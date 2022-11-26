@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Repository Commits</h1>
+            <small>
+                <a class="breadcrump" (click)="backToRepositories()">Repository</a> / Commits
+            </small>
+        </div>
+    </div>
+    <!-- if commits dont exist then we display a message -->
+    <div class="row" *ngIf="!commits || commits.length === 0">
+        <div class="col-12">
+            No commits to display
+        </div>
+    </div>
+    <!-- Iterate the available public projects -->
+    <ng-container *ngIf="commits && commits.length > 0">
+        <div class="row" *ngFor="let commit of commits">
+            <div class="col-12">
+                <app-commits-card [CommitsCardData]="commit"></app-commits-card>
+            </div>
+        </div>
+    </ng-container>
+    <div class="row">
+        <div class="col-12 loadMore" *ngIf="!isLoadAble">
+            <span class="no-loadable">No more data to load</span>
+        </div>
+        <div class="col-12 loadMore" *ngIf="isLoadAble">
+            <button mat-stroked-button color="primary" (click)="loadMore()">Load More</button>
+        </div>
+    </div>
+</div>
