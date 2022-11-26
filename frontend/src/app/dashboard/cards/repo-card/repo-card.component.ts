@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-repo-card',
@@ -9,12 +10,11 @@ export class RepoCardComponent {
 
     @Input() RepoCardData: any;
 
-    /*public CardData: any = {
-        title: 'Project name',
-        subtitle: 'Project subtitle',
-        description: 'Some project description',
-        image: 'https://material.angular.io/assets/img/examples/shiba2.jpg'
-    };*/
+    constructor(
+        private router: Router
+    ){}
 
-    constructor(){}
+    viewCommits(){
+        this.router.navigate(['/dashboard/repo/commits', {repo: this.RepoCardData?.name, owner: this.RepoCardData?.owner?.login}]);
+    }
 }
