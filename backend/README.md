@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This project use Github Api to get all repositories and commits from a Github personal access token. In the root of the project we can find a '.env.example' just copy the content then create a new file called '.env' and paste the content. The only variable that you have to replace is 'GITHUB_TOKEN' replace this variable with your own github personal token
 
 ## Installation
 
