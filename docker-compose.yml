@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  frontend:
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+      target: development
+    command: ng serve --host 0.0.0.0 --port 4300
+    volumes:
+      - ./frontend:/commit-history/frontend/src/app
+      - /commit-history/frontend/src/app/node_modules
+    ports:
+      - 4300:4300
+    links:
+      - backend
+  backend:
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+      target: development
+    volumes:
+      - ./backend:/commit-history/src/app
+      - /commit-history/src/app/node_modules/
+    # RUN in debug mode: npm run start:debug --> Also start your vscode debugger
+    # Run in dev mode: npm run start:dev
+    command: npm run start:dev
+    environment:
+      ENV: development
+      CORS_ORIGIN: http://localhost:4200
+      PORT: 4200
+      DB_URL: mongodb://localhost:27017/commit-history #not used
+      LOG_LEVEL: silly
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+    ports:
+      - 4200:4200
