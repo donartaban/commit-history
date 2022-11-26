@@ -46,12 +46,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
         // If the current array has results then we will concat the new page results
         if (this.repos.length > 0 && data.length > 0)
-          this.repos = this.repos.concat(data);
+          return this.repos = this.repos.concat(data);
 
         // Assing response to repos array
         this.repos = data;
       }, error => {
-        this.snackBar.open(error);
+        this.snackBar.open(error.message);
       });
   }
 
