@@ -1,0 +1,33 @@
+<!--<mat-card class="custom-card">
+    <mat-card-header>
+        <mat-card-title>{{CommitsCardData?.name}}</mat-card-title>
+        <mat-card-subtitle *ngIf="CommitsCardData.full_name">
+            {{CommitsCardData?.full_name}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf="CommitsCardData.image" src="{{CommitsCardData?.image}}">
+    <mat-card-content *ngIf="CommitsCardData.description">
+        <p>
+            <strong>Url:</strong> {{CommitsCardData?.html_url}}<br />
+            <strong>Description:</strong> {{CommitsCardData?.description}}<br />
+            <strong>Owner:</strong> {{CommitsCardData?.owner?.login}}
+        </p>
+    </mat-card-content>
+</mat-card>-->
+<div class="commit-card-container">
+    <mat-card>
+        <div class="row general-padding">
+            <div class="col-12">
+                {{CommitsCardData?.commit?.message}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <img src="{{CommitsCardData?.author?.avatar_url}}">
+                {{CommitsCardData?.commit?.committer?.name}}
+                {{CommitsCardData?.commit?.committer?.email}}
+                {{CommitsCardData?.commit?.committer?.date}}
+            </div>
+        </div>
+    </mat-card>
+</div>
